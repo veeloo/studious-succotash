@@ -1,22 +1,34 @@
 import React, { useState } from "react";
-import {
-    Text,
-    View,
-    Image,
-    TextInput,
-    TouchableOpacity,
-    Alert,
-} from "react-native";
+import { Text, View, Image, TextInput, TouchableOpacity } from "react-native";
 import styles from "./style/style";
 
 import logo from "./assets/favicon.png";
 
 export default function App() {
-    let email = useState(0);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    function login() {
-        Alert.alert("selamat datang");
-    }
+    // d:Github/school-website/backend
+    const endpoint = "http://192.168.1.8:8000/api/login";
+
+    const signIn = () => {
+        const fd = new FormData();
+        fd.append("email", email);
+        fd.append("password", password);
+
+        fetch(endpoint, {
+            method: "post",
+            body: fd,
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                alert(data.msg);
+            })
+            .catch((err) => {
+                console.log(err);
+                alert(err.message);
+            });
+    };
 
     return (
         <View style={styles.container}>
@@ -45,17 +57,24 @@ export default function App() {
                     <TextInput
                         style={styles.formControl}
                         keyboardType="email-address"
+                        placeholder="e.g studious.succotash@gmail.com"
+                        onChangeText={(val) => setEmail(val)}
                     />
                 </View>
                 <View style={styles.formGroup}>
                     <Text>Password</Text>
-                    <TextInput style={styles.formControl} />
+                    <TextInput
+                        style={styles.formControl}
+                        secureTextEntry={true}
+                        placeholder="this one is secreat sttt..."
+                        onChangeText={(val) => setPassword(val)}
+                    />
                 </View>
                 {/* sign in button */}
                 <View style={styles.formGroup}>
                     <TouchableOpacity
                         style={styles.buttonPrimary}
-                        onPress={login}
+                        onPress={signIn}
                     >
                         <Text style={styles.buttonPrimaryText}>Sign In</Text>
                     </TouchableOpacity>
