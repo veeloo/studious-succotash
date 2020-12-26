@@ -7,6 +7,11 @@ const color = {
     primaryColor: "#313FB0",
 };
 
+const font = {
+    nunitoRegular: "nunito-regular",
+    nunitoBold: "nunito-bold",
+};
+
 const styles = StyleSheet.create({
     container: {
         display: "flex",
@@ -18,7 +23,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 40,
-        fontWeight: "bold",
+        fontFamily: font.nunitoBold,
         color: color.primaryColor,
     },
     text: {
