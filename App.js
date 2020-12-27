@@ -6,6 +6,8 @@ import * as Font from "expo-font";
 
 import AppLoading from "expo-app-loading";
 
+import Navigator from "./routes/LoginStack";
+
 const getFonts = () => {
     return Font.loadAsync({
         "nunito-regular": require("./assets/fonts/Nunito-Regular.ttf"),
@@ -17,7 +19,7 @@ export default function App() {
     const [fontsLoaded, setFontsLoaded] = useState(false);
 
     if (fontsLoaded) {
-        return <Login />;
+        return <Navigator />;
     } else {
         return (
             <AppLoading

@@ -7,20 +7,15 @@ import {
     TouchableOpacity,
     TouchableWithoutFeedback,
     Keyboard,
-    Button,
 } from "react-native";
 
 import logo from "./../assets/favicon.png";
 
 import styles from "./../style/style";
 
-export default function Login({ navigation }) {
+export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
-    const navigateToRegister = () => {
-        navigation.navigate("Register");
-    };
 
     // ! d:Github/school-website/backend
     const endpoint = "http://192.168.1.8:8000/api/login";
@@ -59,7 +54,7 @@ export default function Login({ navigation }) {
                 {/* hero text */}
                 <View style={{ marginTop: 50 }}>
                     <View>
-                        <Text style={styles.title}>Let's sign you in</Text>
+                        <Text style={styles.title}>Register </Text>
                     </View>
                     <View style={{ marginTop: 5 }}>
                         <Text style={styles.text}>
@@ -104,7 +99,7 @@ export default function Login({ navigation }) {
 
                 {/* create a new account */}
                 <View>
-                    <Text style={styles.link} onPress={navigateToRegister}>
+                    <Text style={styles.link}>
                         Don't have an account ? Sign Up here
                     </Text>
                 </View>
