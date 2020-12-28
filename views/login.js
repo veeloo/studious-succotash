@@ -7,7 +7,6 @@ import {
     TouchableOpacity,
     TouchableWithoutFeedback,
     Keyboard,
-    Button,
 } from "react-native";
 
 import logo from "./../assets/favicon.png";
