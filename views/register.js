@@ -12,7 +12,7 @@ import {
 
 import logo from "./../assets/favicon.png";
 
-import styles from "./../style/style";
+import styles from "../style/style";
 
 export default function Login({ navigation }) {
     // ! d:Github/school-website/backend
